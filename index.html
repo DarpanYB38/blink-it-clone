@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Everything deliverd in minutes</title>
+  <link rel="icon" type="image/x-icon" href="media/download (1).jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS for centering the navbar */
+    .navbar {
+      justify-content: start;
+    }
+    .navbar .dropdown {
+      margin-right: 10px; /* Adjust spacing between dropdown and search bar */
+    }
+    .navbar .navbar-nav {
+      margin-left: 300px; /* Adjust spacing between login and signup links */
+    }
+    .navbar .navbar-nav .nav-link {
+      margin-right: 30px; /* Adjust spacing between login and signup links */
+    }
+        /* Custom CSS for hero section */
+    .hero-section {
+      position: relative;
+      height: 234.86px; /* Set the height of the hero section */
+      width: 1280px; /* Set the width of the hero section */
+      margin: 0 auto; /* Center the hero section */
+      overflow: hidden;
+      border-radius: 50px; /* Apply rounded corners to create curved sides */
+    }
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+        /* Custom CSS for curved images section */
+    .curved-images-section {
+      margin-top: 20px; /* Add some gap below the hero section */
+      display: flex;
+      margin-left: 300px;
+    }
+    .curved-image {
+      /*width: 335.39; /* Set the width of the curved image */
+      /*height: 195; Set the height of the curved image */
+      border-radius: 20px; /* Apply rounded corners to create curved sides */
+      object-fit: fill;
+      cursor: default;
+      overflow: hidden;
+      margin: 0 5px;  /*Adjust the margin between the curved images */
+    }
+    /* Custom CSS for grid layout */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(10, 128px); /* 5 columns in each row */
+      gap: 10px; /* Gap between grid items */
+      margin-top: 20px; /* Add some space between the curved images and the grid */
+      justify-content: center;
+    }
+    .grid-item {
+      /*height: 188px; /* Set the height of the grid item */
+      /*width: 128px; /* Set the width of the grid item */
+      border-radius: 50px; /* Apply rounded corners */
+      background-color: #f0f0f0; /* Example background color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+        /* Custom CSS for product cards */
+    .product-container {
+      margin-top: 20px; /* Add some space between the grid and product cards */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .product-card {
+      width: 179px; /* Set the width of the product card */
+      height: 287px; /* Set the height of the product card */
+      border-radius: 20px; /* Apply rounded corners */
+      overflow: hidden;
+      margin: 0 10px 20px; /* Adjust margins */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      
+    }
+    .product-image {
+      width: 50%;
+      height: 50%; /* Set the height of the image */
+      object-fit: cover;
+    }
+    .product-details {
+      font-family: Okra;
+      padding: 10px;
+    }
+    .para{
+      font-family: Okra;
+      font-size: 12px;
+    }
+    .product-price {
+      font-family: Okra;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    .btn class{
+      font-family: Okra;
+      font-size: 13px;
+      border-radius: 0.357rem;
+      gap: 0.125rem;
+      background-color: #eee6e6;
+      border: 1px solid #A52A2A;
+      color: black;
+      padding: 8px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+      /*margin-top: 10px;*/
+    }
+    .btn class:hover {
+      background-color: #A52A2A;
+    }
+     /* Custom styles for footer */
+     .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        .footer .col {
+            margin-bottom: 20px;
+        }
+        .footer a {
+            color: inherit;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .social-icons a {
+            margin-right: 10px;
+            color: #000;
+        }
+        .footer .social-icons a:hover {
+            color: #007bff;
+        }
+        .footer .download-app a {
+            margin-right: 10px;
+        }
+        .footer .copyright {
+            margin-top: 20px;
+        }
+  </style>
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <!-- Logo -->
+          <a class="navbar-brand" href="#">
+            <img src="media/download.png" alt="Logo" height="40">
+          </a>
+
+      <!-- Dropdown Menu -->
+      <div class="dropdown">
+        <button class="btn btn-Light dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Select your city
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Benagluru')">Benagluru</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Hydrabad')">Hydrabad</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Chennai</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Amaravati</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Gandinagar</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Ranchi</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Mumbai</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Triuvanathapuram</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Bhuvaneshwar</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Lucknow</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Jaipur</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Kolkata</a></li>
+          <li><a class="dropdown-item" href="#" onclick="updateDropdownText('Chennai')">Chandigarh</a></li>
+        </ul>
+      </div>
+
+      <!-- Search Bar -->
+      <form class="d-flex ms-auto">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+      <!-- Login/Signup Links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Signup</a>
+        </li>
+      </ul>
+    </div>
+    <button type="button" class="btn btn-danger" style="margin-right: 300px; margin-left: 10px; "><img src="media/icons8-cart-48.png" width="28" height="32">My Cart</button>
+  </nav>
+
+  <div class="hero-section">
+    <a href="#"><img class="hero-image" src="media/Group-33704.webp" alt="Hero Image"></a>
+  </div>
+
+   <!-- Curved Images Section -->
+   <div class="curved-images-section">
+    <div class="curved-image">
+      <a href="#"><img src="media/pharmacy-WEB.avif" alt="Curved Image 1" height="195" width="335.39" loading="lazy"></a>
+    </div>
+    <div class="curved-image">
+      <a href="#"><img src="media/Pet-Care_WEB.avif" alt="Curved Image 2 height="195" width="335.39" loading="lazy"></a>
+    </div>
+    <div class="curved-image">
+      <a href="#"><img src="media/babycare-WEB.avif" alt="Curved Image 3 height="195" width="335.39" loading="lazy"></a>
+    </div>
+  </div>
+
+   <!-- Grid Layout -->
+   <div class="grid-container">
+    <!-- First Row -->
+    <div class="grid-item"><img src="media/paan-corner_web.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-2_10.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-3_9.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-4_9.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-5_4.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-6_5.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-7_3.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-8_4.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-9_3.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-10.avif" height="188" width="128"></div>
+    <!-- Second Row -->
+    <div class="grid-item"><img src="media/Slice-11.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-12.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-13.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-14.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-15.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-16.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-17.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-18.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-19.avif" height="188" width="128"></div>
+    <div class="grid-item"><img src="media/Slice-20.avif" height="188" width="128"></div>
+  </div>
+   <!-- Product Cards Section -->
+   <h4 style="text-align: start; margin-left: 280px;">Dairy,Bread & Eggs</h4>
+   <div class="product-container">
+    <!-- Product Card 1 -->
+    <div class="product-card">
+      <img class="product-image" src="media/milky mist.avif" alt="Product Image">
+      <div class="product-details"><h6>Milky Mist Paneer</h6>
+        <p class="para">200g</p>
+        <div class="product-price">₹177</div>
+        <button type="button" class="btn class btn-outline-danger">Add</button>
+      </div>
+    </div>
+    <!-- Product Card 2 -->
+    <div class="product-card">
+      <img class="product-image" src="media/amul chees.avif" alt="Product Image">
+      <div class="product-details"><h6>Amul Pure Milk Cheese Slice</h6>
+        <p class="para">200g</p>
+        <div class="product-price">₹144</div>
+        <button type="button" class="btn class btn-outline-danger">Add</button>
+      </div>
+    </div>
+    <!-- Product Card 3 -->
+    <div class="product-card">
+      <img class="product-image" src="media/amul slated butter.avif" alt="Product Image">
+      <div class="product-details"><h6>Amul slated butter</h6>
+        <p class="para">200g</p>
+        <div class="product-price">₹285</div>
+        <button type="button" class="btn class btn-outline-danger">Add</button>
+      </div>
+    </div>
+        <!-- Product Card 4 -->
+    <div class="product-card">
+      <img class="product-image" src="media/contenced milk.avif" alt="Product Image">
+      <div class="product-details"><h6>Amul Mithal Mate Condenced Milk</h6>
+        <p class="para">200g</p>
+        <div class="product-price">₹66</div>
+        <button type="button" class="btn class btn-outline-danger">Add</button>
+      </div>
+    </div>
+        <!-- Product Card 5 -->
+    <div class="product-card">
+      <img class="product-image" src="media/nandini curd.avif" alt="Product Image">
+      <div class="product-details"><h6>Nandini Curd</h6>
+        <p class="para">500g</p>
+        <div class="product-price">₹26</div>
+        <button type="button" class="btn class btn-outline-danger">Add</button>
+      </div>
+    </div>
+        <!-- Product Card 6 -->
+    <div class="product-card">
+      <img class="product-image" src="media/nandini milk.avif" alt="Product Image">
+      <div class="product-details"><h6>Nandini Milk</h6>
+        <p class="para">500ml</p>
+        <div class="product-price">₹22</div>
+        <button type="button" class="btn class btn-outline-danger">Add</button>
+      </div>
+    </div>
+        <!-- Product Card 7 -->
+    <!--<div class="product-card">
+      <img class="product-image" src="media/jaya white eggs.avif" alt="Product Image">
+      <div class="product-details"><h6>Jaya White Eggs</h6>
+        <p class="para">6 Pieces</p>
+        <div class="product-price">$46</div>
+        <button type="button" class="btn class btn-outline-danger">Add</button>
+      </div>
+    </div>-->
+        <!-- Product Card 8 -->
+    <div class="product-card">
+      <img class="product-image" src="media/beritania bred.avif" alt="Product Image">
+      <div class="product-details"><h6>Britannia 100% Whole Wheat Bread</h6>
+        <p class="para">400g</p>
+        <div class="product-price">₹56</div>
+        <button type="button" class="btn class btn-outline-danger">Add</button>
+      </div>
+    </div>
+  </div>
+ <!-- Product Cards Section 2 -->
+    <h4 style="text-align: start; margin-left: 250px;">Cold Drinks & Juices</h4>
+    <div class="product-container">
+      <!-- Product Card 1 -->
+      <div class="product-card">
+        <img class="product-image" src="media/tinder coconut.avif" alt="Product Image">
+        <div class="product-details"><h6>Storia 100% Tender Coconut Water</h6>
+          <p class="para">1L</p>
+          <div class="product-price">₹116</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/rose rooh.avif" alt="Product Image">
+        <div class="product-details"><h6>Hamdard Rooh Afza Rose Sharbat</h6>
+          <p class="para">750 ml</p>
+          <div class="product-price">₹175</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/lychee  juice.avif" alt="Product Image">
+        <div class="product-details"><h6>Paper Boat Swing Lush Lychee Juice</h6>
+          <p class="para">600 ml</p>
+          <div class="product-price">₹38</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/maaza.avif" alt="Product Image">
+        <div class="product-details"><h6>Mazza Mango Drink</h6>
+          <p class="para">600 ml</p>
+          <div class="product-price">₹42</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/redbull.avif" alt="Product Image">
+        <div class="product-details"><h6>Red Bull Energy Drink</h6>
+          <p class="para">250 ml</p>
+          <div class="product-price">₹125</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/sprite.avif" alt="Product Image">
+        <div class="product-details"><h6>Sprite Lime Flavored Soft Drink</h6>
+          <p class="para">750 ml</p>
+          <div class="product-price">₹45</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/soda.avif" alt="Product Image">
+        <div class="product-details"><h6>Kinley Soda Water With Extra Punch</h6>
+          <p class="para">750 ml</p>
+          <div class="product-price">₹20</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+    </div>
+    <!-- Product Cards Section 3 -->
+    <h4 style="text-align: start; margin-left: 250px;">Snacks & Munchies</h4>
+    <div class="product-container">
+      <!-- Product Card 1 -->
+      <div class="product-card">
+        <img class="product-image" src="media/doritos.avif" alt="Product Image">
+        <div class="product-details"><h6>Doritos Sweet Chill Flavor Nachos</h6>
+          <p class="para">2 X 82.5g</p>
+          <div class="product-price">₹80</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/haldirams.avif" alt="Product Image">
+        <div class="product-details"><h6>Haldiram's Nagpur Sev Bhujia</h6>
+          <p class="para">1kg</p>
+          <div class="product-price">₹225</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/haldirams soya.avif" alt="Product Image">
+        <div class="product-details"><h6>Halidram's Soya Sticks pack of 2</h6>
+          <p class="para">2 x 200g</p>
+          <div class="product-price">₹89</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/lays.avif" alt="Product Image">
+        <div class="product-details"><h6>Lay's West Indian Hot and Sweet Chill Flavour</h6>
+          <p class="para">48g</p>
+          <div class="product-price">₹20</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/haldirams nagpur.avif" alt="Product Image">
+        <div class="product-details"><h6>Haldiram's Nagpur Masala Kaju</h6>
+          <p class="para">35g</p>
+          <div class="product-price">₹50</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/lays american.avif" alt="Product Image">
+        <div class="product-details"><h6>Lay's American Style Cream & Onion Potato</h6>
+          <p class="para">40g</p>
+          <div class="product-price">₹20</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <img class="product-image" src="media/doritos cheese.avif" alt="Product Image">
+        <div class="product-details"><h6>Doritos Cheese Nachos</h6>
+          <p class="para">60g</p>
+          <div class="product-price">₹30</div>
+          <button type="button" class="btn class btn-outline-danger">Add</button>
+        </div>
+      </div>
+      </div>
+ <!-- Footer -->
+<footer class="footer">
+  <div class="container">
+      <div class="row">
+          <!-- Useful Links -->
+          <div class="col-md-4">
+              <h5>Useful Links</h5>
+              <ul class="list-unstyled">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <li><a href="#">Blog</a></li>
+                  <li><a href="#">Press</a></li>
+                  <li><a href="#">Lead</a></li>
+                  <li><a href="#">Value</a></li>
+                  <li><a href="#">Privacy</a></li>
+                  <li><a href="#">Terms</a></li>
+                  <li><a href="#">FAQs</a></li>
+                  <li><a href="#">Security</a></li>
+                  <li><a href="#">Mobile</a></li>
+                  <li><a href="#">Contact</a></li>
+              </ul>
+          </div>
+          <!-- Categories -->
+          <div class="col-md-6">
+              <h5>Categories <a href="#">see all</a></h5>
+              <div class="row">
+                  <div class="col-md-4">
+                      <ul class="list-unstyled">
+                          <li><a href="#">Vegetables & Fruits</a></li>
+                          <li><a href="#">Cold Drinks & Juices</a></li>
+                          <li><a href="#">Bakery & Biscuits</a></li>
+                          <li><a href="#">Dry Fruits, Masala & Oil</a></li>
+                          <li><a href="#">Paan Corner</a></li>
+                          <li><a href="#">Pharma & Wellness</a></li>
+                          <li><a href="#">Personal Care</a></li>
+                          <li><a href="#">Beauty & Cosmetics</a></li>
+                          <li><a href="#">Toys & Games</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-4">
+                      <ul class="list-unstyled">
+                          <li><a href="#">Dairy & Breakfast</a></li>
+                          <li><a href="#">Instant & Frozen Food</a></li>
+                          <li><a href="#">Sweet Tooth</a></li>
+                          <li><a href="#">Sauces & Spreads</a></li>
+                          <li><a href="#">Organic & Premium</a></li>
+                          <li><a href="#">Cleaning Essentials</a></li>
+                          <li><a href="#">Ice Creams & Frozen Desserts</a></li>
+                          <li><a href="#">Magazines</a></li>
+                          <li><a href="#">Print Store</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-md-4">
+                      <ul class="list-unstyled">
+                          <li><a href="#">Munchies</a></li>
+                          <li><a href="#">Tea, Coffee & Health Drinks</a></li>
+                          <li><a href="#">Atta, Rice & Dal</a></li>
+                          <li><a href="#">Chicken, Meat & Fish</a></li>
+                          <li><a href="#">Baby Care</a></li>
+                          <li><a href="#">Home & Office</a></li>
+                          <li><a href="#">Pet Care</a></li>
+                          <li><a href="#">Books</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          <!-- Download App -->
+          <!--<div class="col-md-3 text-md-end">
+              <h5>Download App</h5>
+              <div class="download-app">
+                  <a href="#"><img src="https://via.placeholder.com/150x50?text=App+Store" alt="App Store"></a>
+                  <a href="#"><img src="https://via.placeholder.com/150x50?text=Google+Play" alt="Google Play"></a>
+              </div>-->
+              <!-- Social Media Icons -->
+              <div class="social-icons mt-3">
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#"><i class="fab fa-medium-m"></i></a>
+              </div>
+          </div>
+      </div>
+      <!-- Copyright -->
+      <div class="row">
+          <div class="col-12 text-center copyright">
+              <p>© Blink Commerce Private Limited (formerly known as Grofers India Private Limited), 2016-2024</p>
+          </div>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+    <!-- Bootstrap JS (optional, for dropdown functionality) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      function updateDropdownText(text) {
+        document.getElementById('dropdownMenuButton').innerText = text;
+      }
+    </script>
+  
+</body>
+</html>
